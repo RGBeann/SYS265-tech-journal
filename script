@@ -1,0 +1,25 @@
+#!/bin/bash
+
+USERNAME="sys265"
+HOME_DIR="/home/tech-journal-private/SYS265"
+SSH_DIR="$HOME_DIR/.ssh"
+PUB_KEY_SOURCE="SYS265/linux/public-keys/id_rsa.pub"
+AUTHORIZED_KEYS="$SSH_DIR/authorized_keys"
+
+echo "Creating user..."
+sudo useradd -m -d "$HOME_DIR" -s /bin/bash "$USERNAME"
+
+echo "Creating .ssh directory..."
+sudo mkdir -p "$SSH_DIR"
+
+echo "Copying public key to authorized_keys..."
+sudo cp "$PUB_KEY_SOURCE" "$AUTHORIZED_KEYS"
+
+echo "Setting correct permissions..."
+sudo chmod 700 "$SSH_DIR"
+sudo chmod 600 "$AUTHORIZED_KEYS"
+
+echo "Fixing ownership..."
+sudo chown -R "$USERNAME:$USERNAME" "$SSH_DIR"
+
+echo "Setup complete for user $USERNAME"
