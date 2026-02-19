@@ -21,7 +21,7 @@ sudo useradd -m -d /home/$USERNAME -s /bin/bash "$USERNAME"
 sudo mkdir /home/$USERNAME/.ssh
 
 # copy key
-sudo cp $HOME/SYS-265-Logan-S/linux/public-keys/id_rsa.pub /home/$USERNAME/.ssh/authorized_keys
+sudo cp $HOME/SYS-265-Bran-S/linux/public-keys/id_rsa.pub /home/$USERNAME/.ssh/authorized_keys
 
 #set perms
 sudo chmod 700 /home/$USERNAME/.ssh
